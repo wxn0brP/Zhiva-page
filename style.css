@@ -1,11 +1,26 @@
 :root {
     --primary: #7c3aed;
     --primary-dark: #6d28d9;
+}
+
+:root {
+    --text: #fff;
+    --text-light: #ccc;
+    --bg: #111;
+    --bg-light: #1e1e1e;
+    --border: #333;
+    --header-bg: #111;
+    --header-text: #aaa;
+}
+
+:root:has(#dark-mode:checked) {
     --text: #111827;
     --text-light: #4b5563;
     --bg: #ffffff;
     --bg-light: #f9fafb;
     --border: #e5e7eb;
+    --header-bg: rgba(255, 255, 255, 0.95);
+    --header-text: #aaa;
 }
 
 body {
@@ -25,12 +40,16 @@ a:hover {
     text-decoration: underline;
 }
 
+.acc {
+    color: var(--primary);
+}
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--header-bg);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 100;
@@ -46,8 +65,13 @@ header {
     color: var(--primary);
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
 nav a {
-    margin-left: 2rem;
     font-weight: 500;
     color: var(--text-light);
 }
@@ -56,10 +80,14 @@ nav a:hover {
     color: var(--text);
 }
 
+#dark-mode {
+    display: none;
+}
+
 .hero {
     padding: 10rem 2rem 8rem;
     text-align: center;
-    background: linear-gradient(to bottom, var(--bg-light), var(--bg));
+    background: linear-gradient(to top, var(--bg-light), var(--bg));
 }
 
 .hero h1 {
@@ -137,7 +165,7 @@ nav a:hover {
 }
 
 footer {
-    background: #111;
+    background: #0c0c0c;
     color: #aaa;
     padding: 4rem 2rem 2rem;
     text-align: center;
