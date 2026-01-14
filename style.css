@@ -330,17 +330,19 @@ footer a {
 }
 
 pre {
-    background: #1e1e1e;
-    color: #d4d4d4;
+    background: #1e1e1e !important;
+    color: #ccc;
     padding: 1.5rem;
     border-radius: 0.5rem;
     overflow-x: auto;
     font-family: 'Fira Code', 'Courier New', monospace;
     font-size: 0.95rem;
+    text-shadow: none !important;
 }
 
 code {
     font-family: 'Fira Code', 'Courier New', monospace;
+    text-shadow: none !important;
 }
 
 :not(pre)>code {
@@ -349,6 +351,90 @@ code {
     padding: 0.2em 0.4em;
     border-radius: 0.3rem;
     font-size: 0.9em;
+}
+
+.code-examples {
+    padding: 6rem 2rem;
+    background: var(--bg);
+}
+
+.code-examples h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.code-examples .tagline {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.code-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.code-block {
+    background: #1e1e1e;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.code-header {
+    background: #252526;
+    padding: 0.75rem 1.5rem;
+    border-bottom: 1px solid #333;
+    color: #ccc;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.code-header::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+    margin-right: 35px;
+}
+
+.code-block pre {
+    margin: 0;
+    border-radius: 0;
+    height: 100%;
+    background: #1e1e1e !important;
+}
+
+:not(pre)>code[class*="language-"],
+pre[class*="language-"] {
+    background: #1e1e1e !important;
+    text-shadow: none !important;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    text-shadow: none !important;
+    font-family: 'Fira Code', 'Courier New', monospace !important;
+}
+
+@media (min-width: 1024px) {
+    .code-grid {
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .comparison {

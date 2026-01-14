@@ -12,6 +12,7 @@
         content="Zhiva is a modern framework for building small, fast, native desktop apps using TypeScript, HTML, and CSS - powered by Bun and system native webviews.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animations.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -98,6 +99,63 @@ bun run build</code></pre>
                 <p>Launch your application using the Zhiva CLI from your project's root directory.</p>
                 <pre><code class="language-shell">zhiva start .</code></pre>
                 <p>A native window will open with your application running.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="code-examples">
+        <h2 class="animate-on-scroll">Simple & Powerful API</h2>
+        <p class="tagline animate-on-scroll">
+            Define backend endpoints and call them directly from frontend with full type safety.
+        </p>
+
+        <div class="code-grid">
+            <!-- Backend Code -->
+            <div class="code-block animate-on-scroll">
+                <div class="code-header">backend/index.ts</div>
+                <pre><code class="language-typescript">import { app, oneWindow } from "@wxn0brp/zhiva-base-lib";
+import { apiRouter } from "@wxn0brp/zhiva-base-lib/api";
+
+// Serve static files (like express.static)
+app.static("public");
+app.static("dist");
+
+// Define a GET endpoint
+apiRouter.get("/hello", async () => {
+    return { err: false, msg: "Hello world!" };
+});
+
+// Define a POST endpoint
+apiRouter.post("/hello", async (req) => {
+    console.log(req.body.hello);
+    return { err: false, msg: req.body.hello };
+});
+
+// Create the application window
+oneWindow();</code></pre>
+            </div>
+
+            <!-- Frontend Code -->
+            <div class="code-block animate-on-scroll">
+                <div class="code-header">frontend/browser.ts</div>
+                <pre><code class="language-typescript">import "@wxn0brp/flanker-ui/html";
+import {
+    fetchApi,
+    fetchApiJson,
+    fetchApiPost
+} from "@wxn0brp/zhiva-base-lib/front/api";
+
+// Fetch secure API and parse JSON
+fetchApiJson("hello").then(console.log);
+
+// Fetch secure API as text
+fetchApi("hello")
+    .then(res => res.text())
+    .then(console.log);
+
+// Post data to secure API
+fetchApiPost("hello", { msg: "Hello from Zhiva" })
+    .then(console.log);</code></pre>
             </div>
         </div>
     </section>
@@ -244,26 +302,36 @@ bun run build</code></pre>
         </p>
     </footer>
 
+    <script type="module">
+        const observerOptions = {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll(".animate-on-scroll");
+        animatedElements.forEach(el => observer.observe(el));
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
     <script>
-        // Simple Intersection Observer for scroll animations
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Only animate once
-                    }
-                });
-            }, observerOptions);
-
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach(el => observer.observe(el));
+        Prism.languages.insertBefore('bash', 'function', {
+            'zhiva-cli': {
+                pattern: /(^|[\s;|&]|[<>()])(?:zhiva|bun)(?=$|[\s;|&]|[<>()])/g,
+                lookbehind: true,
+                alias: 'keyword'
+            }
         });
     </script>
 </body>
