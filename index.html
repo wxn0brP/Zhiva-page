@@ -11,6 +11,7 @@
     <meta name="description"
         content="Zhiva is a modern framework for building small, fast, native desktop apps using TypeScript, HTML, and CSS - powered by Bun and system native webviews.">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
 </head>
 
 <body>
@@ -42,19 +43,19 @@
     </header>
 
     <section class="hero">
-        <h1>Zhiva</h1>
-        <p class="tagline">
+        <h1 class="animate-on-scroll">Zhiva</h1>
+        <p class="tagline animate-on-scroll">
             Build lightweight <span class="acc">cross-platform</span> desktop apps with TypeScript, HTML, and CSS
         </p>
-        <p id="hero-text">
+        <p id="hero-text" class="animate-on-scroll">
             Zhiva uses the system's shared native webview and the ultra-fast Bun runtime - no bundled Chromium or
             Node.js. Apps are tiny, start instantly, and communicate via secure REST API instead of complex IPC.
         </p>
-        <p class="status-note">
+        <p class="status-note animate-on-scroll">
             <strong>Note:</strong> Zhiva is currently in active development (WIP). It's an evolution from a Proof of
             Concept and is not yet production-ready.
         </p>
-        <div class="buttons">
+        <div class="buttons animate-on-scroll">
             <a href="#getting-started" class="btn btn-primary">Get Started</a>
             <a href="https://github.com/wxn0brP/Zhiva" target="_blank" class="btn btn-secondary">View on GitHub</a>
         </div>
@@ -63,7 +64,7 @@
     <section id="getting-started" class="getting-started">
         <h2>From Zero to App in 4 Steps</h2>
         <div class="step-by-step-large">
-            <div class="step">
+            <div class="step animate-on-scroll">
                 <h4>1. Install Zhiva</h4>
                 <p>Run the installer for your OS. This command installs the Zhiva CLI and engine.</p>
                 <pre><code class="language-shell"># For Linux & macOS
@@ -77,13 +78,13 @@ curl -fsSL https://raw.githubusercontent.com/wxn0brP/Zhiva/HEAD/install/prepare.
                     </a>.
                 </p>
             </div>
-            <div class="step">
+            <div class="step animate-on-scroll">
                 <h4>2. Create from Template</h4>
                 <p>The easiest way to start is by cloning the official template.</p>
                 <pre><code class="language-shell">git clone https://github.com/wxn0brP/Zhiva-template-app my-app
 cd my-app</code></pre>
             </div>
-            <div class="step">
+            <div class="step animate-on-scroll">
                 <h4>3. Install Dependencies & Build</h4>
                 <p>Use Bun to install dependencies and build the frontend TypeScript code.</p>
                 <pre><code class="language-shell"># Install project dependencies
@@ -92,7 +93,7 @@ bun install
 # Compile the frontend code
 bun run build</code></pre>
             </div>
-            <div class="step">
+            <div class="step animate-on-scroll">
                 <h4>4. Run Your App</h4>
                 <p>Launch your application using the Zhiva CLI from your project's root directory.</p>
                 <pre><code class="language-shell">zhiva start .</code></pre>
@@ -102,15 +103,15 @@ bun run build</code></pre>
     </section>
 
     <section class="features">
-        <h2 id="why-zhiva">Why Zhiva?</h2>
-        <p id="why-zhiva-text">
+        <h2 id="why-zhiva" class="animate-on-scroll">Why Zhiva?</h2>
+        <p id="why-zhiva-text" class="animate-on-scroll">
             Minimal overhead, maximum simplicity. Install Zhiva once globally, then deploy apps with just
             <code>git clone</code>
             and optional post-install scripts.
         </p>
 
         <div class="features-grid">
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>One-Time Global Install</h3>
                 <p>
                     Install Zhiva once system-wide. Individual apps are deployed via
@@ -118,53 +119,53 @@ bun run build</code></pre>
                     with optional lightweight post-install scripts - no heavy packaging or bundling required.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Secure REST API Communication</h3>
                 <p>
                     Replace complex IPC with familiar, well-documented REST APIs. Built-in authorization and
                     authentication ensure secure frontend-backend communication without custom protocols.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Tiny Bundle Sizes</h3>
                 <p>
                     No embedded Chromium or Node.js. Uses native system webviews - resulting in apps often under 10 MB.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Bun-Powered Backend</h3>
                 <p>
                     Bun executes TypeScript natively (no compilation needed), with faster startup, better performance,
                     and built-in tools for bundling, testing, and package management.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Platform Support</h3>
                 <p>
                     Full support for Windows and Linux. Experimental macOS support is available and actively improving.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Familiar Web Stack</h3>
                 <p>
                     Use HTML, CSS, TypeScript/JavaScript, and any frontend framework (React, Vue, Svelte, etc.).
                     Hot reload works out of the box.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Secure by Default</h3>
                 <p>
                     Native webview sandboxing combined with Bun's modern security model and authenticated REST APIs.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Open Source</h3>
                 <p>
                     Fully open-source (MIT licensed), community-driven, and designed for the future of lightweight
                     desktop apps.
                 </p>
             </div>
-            <div class="feature">
+            <div class="feature animate-on-scroll">
                 <h3>Minimal Configuration</h3>
                 <p>
                     Apps require minimal configuration, making development faster and deployments simpler. Focus on your
@@ -242,6 +243,29 @@ bun run build</code></pre>
             <a href="https://github.com/wxn0brP/Zhiva/discussions" target="_blank">Discussions</a>
         </p>
     </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 
 </html>
