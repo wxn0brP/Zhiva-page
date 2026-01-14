@@ -328,11 +328,11 @@ fetchApiPost("hello", { msg: "Hello from Zhiva" })
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
     <script>
-        Prism.languages.insertBefore('bash', 'function', {
-            'zhiva-cli': {
+        Prism.languages.insertBefore("bash", "function", {
+            "zhiva-cli": {
                 pattern: /(^|[\s;|&]|[<>()])(?:zhiva|bun)(?=$|[\s;|&]|[<>()])/g,
                 lookbehind: true,
-                alias: 'keyword'
+                alias: "keyword"
             }
         });
     </script>
