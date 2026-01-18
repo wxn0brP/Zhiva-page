@@ -290,13 +290,13 @@ footer a {
 }
 
 .status-note {
-    background-color: #fffbeb;
-    color: #92400e;
+    background-color: var(--bg-light);
+    color: var(--txt);
     padding: 1rem;
     border-radius: 0.5rem;
     max-width: 800px;
     margin: 2rem auto 3rem;
-    border: 1px solid #fde68a;
+    border: 1px solid var(--primary);
 }
 
 .getting-started {
