@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhiva install</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        main {
+            text-align: center;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            max-width: 90%;
+        }
+
+        main:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+            border-color: #7c3aed;
+        }
+
+        .accent {
+            color: #7c3aed;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        If the application doesn't start automatically, <span class="accent">click here to launch</span>.
+    </main>
+    <script>
+        const search = new URLSearchParams(window.location.hash?.slice?.(1) || window.location.search);
+        const app = search.get("app");
+        const op = search.get("op") || "install+start";
+        const url = `zhiva://${op}/${app}`;
+        console.log(url);
+        document.querySelector("main").addEventListener("click", () => {
+            location.href = url;
+        });
+        document.querySelector("title").innerText = "Zhiva " + op;
+        location.href = url;
+    </script>
+</body>
+
+</html>
