@@ -1,0 +1,8 @@
+{
+	"name": "zhiva-page",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "rm -rf dist && bun build index.html --outdir dist --minify && mkdir -p dist/assets && cp assets/og.png dist/assets/ && cp i.html dist/"
+	}
+}

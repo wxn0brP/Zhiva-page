@@ -1,0 +1,63 @@
+:root {
+    color-scheme: light dark;
+
+    --bg: light-dark(#ffffff, #111111);
+    --surface: light-dark(#f9fafb, #1e1e1e);
+    --surface-2: light-dark(#f3f4f6, #252526);
+    --surface-3: light-dark(#e8ebef, #2d2d30);
+    --border: light-dark(#e5e7eb, #333333);
+    --text: light-dark(#111827, #ffffff);
+    --text-muted: light-dark(#4b5563, #cccccc);
+
+    --accent: #7c3aed;
+    --accent-hover: #6d28d9;
+    --accent-text: light-dark(#6d28d9, #a78bfa);
+    --accent-soft: light-dark(rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.14));
+
+    --header-bg: light-dark(rgba(255, 255, 255, 0.92), rgba(17, 17, 17, 0.92));
+    --shadow-sm:
+        0 1px 2px light-dark(rgba(15, 23, 42, 0.06), rgba(0, 0, 0, 0.4)),
+        0 1px 3px light-dark(rgba(15, 23, 42, 0.08), rgba(0, 0, 0, 0.3));
+    --shadow-lg: 0 20px 40px light-dark(rgba(15, 23, 42, 0.12), rgba(0, 0, 0, 0.55));
+
+    --font-sans:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+        Cantarell, sans-serif;
+    --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+    --fs-h1: clamp(2.75rem, 7vw, 4.5rem);
+    --fs-h2: clamp(2rem, 4.5vw, 3rem);
+    --fs-h3: clamp(1.35rem, 2.2vw, 1.8rem);
+    --fs-lead: clamp(1.1rem, 2.2vw, 1.4rem);
+    --fs-tagline: clamp(1.3rem, 3vw, 1.75rem);
+
+    --space-section: clamp(4rem, 8vw, 6rem);
+    --gutter: clamp(1.25rem, 4vw, 2rem);
+    --container: 1200px;
+    --header-h: 4.5rem;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+
+    --code-bg: light-dark(#f6f8fa, #1e1e1e);
+    --code-header-bg: light-dark(#eef1f4, #252526);
+    --code-border: light-dark(#d0d7de, #333333);
+    --code-text: light-dark(#24292f, #cccccc);
+    --code-comment: light-dark(#57606a, #8b949e);
+    --code-keyword: light-dark(#cf222e, #c678dd);
+    --code-string: light-dark(#0a3069, #98c379);
+    --code-function: light-dark(#8250df, #61afef);
+    --code-number: light-dark(#0550ae, #d19a66);
+    --code-operator: light-dark(#cf222e, #56b6c2);
+    --code-punct: light-dark(#24292f, #abb2bf);
+    --code-property: light-dark(#0550ae, #e5c07b);
+}
+
+html[data-theme="light"] {
+    color-scheme: light;
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+}

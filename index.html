@@ -1,145 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhiva - Build lightweight cross-platform desktop apps with web technologies</title>
     <meta name="color-scheme" content="dark light">
-    <meta name="theme-color" content="#7c3aed">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#111111">
+    <link rel="canonical" href="https://wxn0brp.github.io/Zhiva-page/">
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48 64x64">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
     <meta name="description"
         content="Zhiva is a modern framework for building small, fast, native desktop apps using TypeScript, HTML, and CSS - powered by Bun and system native webviews.">
 
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Zhiva">
+    <meta property="og:url" content="https://wxn0brp.github.io/Zhiva-page/">
     <meta property="og:title" content="Zhiva - Build lightweight cross-platform desktop apps">
     <meta property="og:description"
         content="Build small, fast native desktop apps with TypeScript, HTML, and CSS. No bundled Chromium - uses system webviews and Bun runtime.">
-    <meta property="og:image" content="favicon.ico">
+    <meta property="og:image" content="https://wxn0brp.github.io/Zhiva-page/assets/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Zhiva logo with the tagline Lightweight cross-platform desktop apps">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Zhiva - Build lightweight cross-platform desktop apps">
     <meta name="twitter:description"
         content="Build small, fast native desktop apps with TypeScript, HTML, and CSS. No bundled Chromium - uses system webviews and Bun runtime.">
-    <meta name="twitter:image" content="favicon.ico">
+    <meta name="twitter:image" content="https://wxn0brp.github.io/Zhiva-page/assets/og.png">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="animations.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Zhiva",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Windows, Linux, macOS",
-        "description": "A modern framework for building lightweight cross-platform desktop apps using TypeScript, HTML, and CSS",
-        "url": "https://github.com/wxn0brP/Zhiva",
-        "license": "https://opensource.org/licenses/MIT",
-        "softwareRequirements": "Bun runtime"
-    }
+    <script>
+        (() => {
+            const root = document.documentElement;
+            root.classList.remove("no-js");
+            let stored = null;
+            try {
+                stored = localStorage.getItem("zhiva-theme");
+            } catch { }
+            const theme = stored === "light" || stored === "dark"
+                ? stored
+                : matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+            root.dataset.theme = theme;
+            document.querySelector('meta[name="theme-color"]')
+                ?.setAttribute("content", theme === "light" ? "#ffffff" : "#111111");
+        })();
     </script>
+
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="favicon.ico" alt="Zhiva" style="width: 46px;">
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-        <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-toggle">
-        <label for="mobile-menu-toggle" class="hamburger" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+    <header class="site-header">
+        <a class="logo" href="./" aria-label="Zhiva home">
+            <img src="assets/logo.png" alt="" width="46" height="46">
+        </a>
 
-        <nav class="nav-menu">
-            <input type="checkbox" id="dark-mode">
-            <label for="dark-mode" title="Toggle theme" aria-label="Toggle theme" style="margin-bottom: -6px;">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" height="1.2em" width="1.2em"
-                    viewBox="0 0 32 32" fill="currentColor">
-                    <path
-                        d="M27.5 11.5v-7h-7L16 0l-4.5 4.5h-7v7L0 16l4.5 4.5v7h7L16 32l4.5-4.5h7v-7L32 16l-4.5-4.5zM16 25.4V6.6c5.2 0 9.4 4.2 9.4 9.4s-4.2 9.4-9.4 9.4z" />
-                </svg>
-            </label>
-            <a href="https://wxn0brp.github.io/Zhiva/" target="_blank">Docs</a>
-            <a href="https://github.com/wxn0brP/Zhiva" target="_blank">GitHub</a>
-            <a href="https://github.com/wxn0brP/Zhiva/discussions" target="_blank">Discussions</a>
-            <a href="https://discord.gg/fnHp9w629e" target="_blank">Discord</a>
+        <nav id="primary-nav" class="nav-menu" aria-label="Main">
+            <a href="https://wxn0brp.github.io/Zhiva/" target="_blank" rel="noopener noreferrer">Docs</a>
+            <a href="https://github.com/wxn0brP/Zhiva" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/wxn0brP/Zhiva/discussions" target="_blank"
+                rel="noopener noreferrer">Discussions</a>
+            <a href="https://discord.gg/fnHp9w629e" target="_blank" rel="noopener noreferrer">Discord</a>
         </nav>
+
+        <div class="header-actions">
+            <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Switch to light theme">
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true" focusable="false">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                </svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="4" />
+                    <path
+                        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+                </svg>
+            </button>
+            <button id="nav-toggle" class="icon-btn hamburger" type="button" aria-expanded="false"
+                aria-controls="primary-nav" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1 class="animate-on-scroll">Zhiva</h1>
-        <p class="tagline animate-on-scroll">
-            Build lightweight <span class="acc">cross-platform</span> desktop apps with TypeScript, HTML, and CSS
-        </p>
-        <p id="hero-text" class="animate-on-scroll">
-            Zhiva uses the system's shared native webview and the ultra-fast Bun runtime - no bundled Chromium or
-            Node.js. Apps are tiny, start instantly, and communicate via secure REST API instead of complex IPC.
-        </p>
-        <p class="status-note animate-on-scroll">
-            <strong>Note:</strong> Zhiva is currently in active development (WIP). It's an evolution from a Proof of
-            Concept and is not yet production-ready.
-        </p>
-        <div class="buttons animate-on-scroll">
-            <a href="#getting-started" class="btn btn-primary">Get Started</a>
-            <a href="https://github.com/wxn0brP/Zhiva" target="_blank" class="btn btn-secondary">View on GitHub</a>
-        </div>
-    </section>
+    <main id="main">
+        <section class="hero">
+            <h1 class="animate-on-scroll">Zhiva</h1>
+            <p class="tagline animate-on-scroll">
+                Build lightweight <span class="acc">cross-platform</span> desktop apps with TypeScript, HTML, and CSS
+            </p>
+            <p class="hero-text animate-on-scroll">
+                Zhiva uses the system's shared native webview and the ultra-fast Bun runtime - no bundled Chromium or
+                Node.js. Apps are tiny, start instantly, and communicate via secure REST API instead of complex IPC.
+            </p>
+            <p class="status-note animate-on-scroll">
+                <strong>Note:</strong> Zhiva is currently in active development (WIP). It's an evolution from a Proof of
+                Concept and is not yet production-ready.
+            </p>
+            <div class="buttons animate-on-scroll">
+                <a href="#getting-started" class="btn btn-primary">Get Started</a>
+                <a href="https://github.com/wxn0brP/Zhiva" target="_blank" rel="noopener noreferrer"
+                    class="btn btn-secondary">View on GitHub</a>
+            </div>
+        </section>
 
-    <section id="getting-started" class="getting-started">
-        <h2>From Zero to App in 4 Steps</h2>
-        <div class="step-by-step-large">
-            <div class="step animate-on-scroll">
-                <h4>1. Install Zhiva</h4>
-                <p>Run the installer for your OS. This command installs the Zhiva CLI and engine.</p>
-                <pre><code class="language-shell"># For Linux & macOS
+        <section id="getting-started" class="section getting-started">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">From Zero to App in 4 Steps</h2>
+                <div class="step-by-step-large">
+                    <div class="step animate-on-scroll">
+                        <h3>1. Install Zhiva</h3>
+                        <p>Run the installer for your OS. This command installs the Zhiva CLI and engine.</p>
+                        <pre><code class="language-shell"># For Linux & macOS
 curl -fsSL https://raw.githubusercontent.com/wxn0brP/Zhiva/HEAD/install/prepare.sh | bash</code></pre>
-                <p>
-                    Remember to add Zhiva to your shell's PATH.
-                    <br>
-                    Run <code>zhiva doctor</code> to verify the installation.
-                    <br>
-                    For Windows,
-                    <a href="https://github.com/wxn0brP/Zhiva-windows/releases/download/latest/Zhiva-store-app.exe">
-                        download the installer
-                    </a>.
-                </p>
-            </div>
-            <div class="step animate-on-scroll">
-                <h4>2. Create a Project</h4>
-                <p>Create a new application from the official template with one command.</p>
-                <pre><code class="language-shell">zhiva create my-app
+                        <p>
+                            Remember to add Zhiva to your shell's PATH.
+                            <br>
+                            Run <code>zhiva doctor</code> to verify the installation.
+                            <br>
+                            For Windows,
+                            <a
+                                href="https://github.com/wxn0brP/Zhiva-windows/releases/download/latest/Zhiva-store-app.exe">download
+                                the installer</a>.
+                        </p>
+                    </div>
+                    <div class="step animate-on-scroll">
+                        <h3>2. Create a Project</h3>
+                        <p>Create a new application from the official template with one command.</p>
+                        <pre><code class="language-shell">zhiva create my-app
 cd my-app</code></pre>
+                    </div>
+                    <div class="step animate-on-scroll">
+                        <h3>3. Build the Frontend</h3>
+                        <p><code>zhiva create</code> already installed dependencies. Build the frontend TypeScript code.
+                        </p>
+                        <pre><code class="language-shell">bun run build</code></pre>
+                    </div>
+                    <div class="step animate-on-scroll">
+                        <h3>4. Run Your App</h3>
+                        <p>Launch your application using the Zhiva CLI from your project's root directory.</p>
+                        <pre><code class="language-shell">zhiva start .</code></pre>
+                        <p>A native window will open with your application running.</p>
+                    </div>
+                </div>
             </div>
-            <div class="step animate-on-scroll">
-                <h4>3. Build the Frontend</h4>
-                <p><code>zhiva create</code> already installed dependencies. Build the frontend TypeScript code.</p>
-                <pre><code class="language-shell">bun run build</code></pre>
-            </div>
-            <div class="step animate-on-scroll">
-                <h4>4. Run Your App</h4>
-                <p>Launch your application using the Zhiva CLI from your project's root directory.</p>
-                <pre><code class="language-shell">zhiva start .</code></pre>
-                <p>A native window will open with your application running.</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="code-examples">
-        <h2 class="animate-on-scroll">Simple & Powerful API</h2>
-        <p class="tagline animate-on-scroll">
-            Define backend endpoints and call them directly from frontend with full type safety.
-        </p>
+        <section class="section code-examples">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Simple & Powerful API</h2>
+                <p class="section-lead animate-on-scroll">
+                    Define backend endpoints and call them directly from frontend with full type safety.
+                </p>
 
-        <div class="code-grid">
-            <!-- Backend Code -->
-            <div class="code-block animate-on-scroll">
-                <div class="code-header">backend/index.ts</div>
-                <pre><code class="language-typescript">import { app, oneWindow } from "@wxn0brp/zhiva-base-lib";
+                <div class="code-grid">
+                    <div class="code-block animate-on-scroll">
+                        <div class="code-header">backend/index.ts</div>
+                        <pre><code class="language-typescript">import { app, oneWindow } from "@wxn0brp/zhiva-base-lib";
 import { apiRouter } from "@wxn0brp/zhiva-base-lib/api";
 
 // Serve static files (like express.static)
@@ -159,12 +187,11 @@ apiRouter.post("/hello", async (req) => {
 
 // Create the application window
 oneWindow();</code></pre>
-            </div>
+                    </div>
 
-            <!-- Frontend Code -->
-            <div class="code-block animate-on-scroll">
-                <div class="code-header">frontend/browser.ts</div>
-                <pre><code class="language-typescript">import "@wxn0brp/flanker-ui/html";
+                    <div class="code-block animate-on-scroll">
+                        <div class="code-header">frontend/browser.ts</div>
+                        <pre><code class="language-typescript">import "@wxn0brp/flanker-ui/html";
 import {
     fetchApi,
     fetchApiJson,
@@ -182,185 +209,174 @@ fetchApi("hello")
 // Post data to secure API
 fetchApiPost("hello", { msg: "Hello from Zhiva" })
     .then(console.log);</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="features">
-        <h2 id="why-zhiva" class="animate-on-scroll">Why Zhiva?</h2>
-        <p id="why-zhiva-text" class="animate-on-scroll">
-            Minimal overhead, maximum simplicity. Install Zhiva once globally, then deploy apps with just
-            <code>git clone</code>
-            and optional post-install scripts.
-        </p>
+        <section class="section features">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Why Zhiva?</h2>
+                <p class="section-lead animate-on-scroll">
+                    Minimal overhead, maximum simplicity. Install Zhiva once globally, then deploy apps with just
+                    <code>git clone</code>
+                    and optional post-install scripts.
+                </p>
 
-        <div class="features-grid">
-            <div class="feature animate-on-scroll">
-                <h3>One-Time Global Install</h3>
-                <p>
-                    Install Zhiva once system-wide. Individual apps are deployed via
-                    <code>git clone</code> from GitHub
-                    with optional lightweight post-install scripts - no heavy packaging or bundling required.
-                </p>
+                <div class="features-grid">
+                    <div class="feature animate-on-scroll">
+                        <h3>One-Time Global Install</h3>
+                        <p>
+                            Install Zhiva once system-wide. Individual apps are deployed via
+                            <code>git clone</code> from GitHub
+                            with optional lightweight post-install scripts - no heavy packaging or bundling required.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Secure REST API Communication</h3>
+                        <p>
+                            Replace complex IPC with familiar, well-documented REST APIs. Built-in authorization and
+                            authentication ensure secure frontend-backend communication without custom protocols.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Tiny Bundle Sizes</h3>
+                        <p>
+                            No embedded Chromium or Node.js. Uses native system webviews - resulting in apps often
+                            under 10 MB.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Bun-Powered Backend</h3>
+                        <p>
+                            Bun executes TypeScript natively (no compilation needed), with faster startup, better
+                            performance,
+                            and built-in tools for bundling, testing, and package management.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Platform Support</h3>
+                        <p>
+                            Full support for Windows and Linux. macOS support exists but is untested on real hardware.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Familiar Web Stack</h3>
+                        <p>
+                            Use HTML, CSS, TypeScript/JavaScript, and any frontend framework (React, Vue, Svelte, etc.).
+                            Bun rebuilds the frontend in milliseconds.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Secure by Default</h3>
+                        <p>
+                            Native webview sandboxing combined with Bun's modern security model and authenticated REST
+                            APIs.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Open Source</h3>
+                        <p>
+                            Fully open-source (MIT licensed), community-driven, and designed for the future of
+                            lightweight
+                            desktop apps.
+                        </p>
+                    </div>
+                    <div class="feature animate-on-scroll">
+                        <h3>Minimal Configuration</h3>
+                        <p>
+                            Apps require minimal configuration, making development faster and deployments simpler.
+                            Focus on your
+                            code, not complex setup.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="feature animate-on-scroll">
-                <h3>Secure REST API Communication</h3>
-                <p>
-                    Replace complex IPC with familiar, well-documented REST APIs. Built-in authorization and
-                    authentication ensure secure frontend-backend communication without custom protocols.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Tiny Bundle Sizes</h3>
-                <p>
-                    No embedded Chromium or Node.js. Uses native system webviews - resulting in apps often under 10 MB.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Bun-Powered Backend</h3>
-                <p>
-                    Bun executes TypeScript natively (no compilation needed), with faster startup, better performance,
-                    and built-in tools for bundling, testing, and package management.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Platform Support</h3>
-                <p>
-                    Full support for Windows and Linux. macOS support exists but is untested on real hardware.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Familiar Web Stack</h3>
-                <p>
-                    Use HTML, CSS, TypeScript/JavaScript, and any frontend framework (React, Vue, Svelte, etc.).
-                    Bun rebuilds the frontend in milliseconds.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Secure by Default</h3>
-                <p>
-                    Native webview sandboxing combined with Bun's modern security model and authenticated REST APIs.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Open Source</h3>
-                <p>
-                    Fully open-source (MIT licensed), community-driven, and designed for the future of lightweight
-                    desktop apps.
-                </p>
-            </div>
-            <div class="feature animate-on-scroll">
-                <h3>Minimal Configuration</h3>
-                <p>
-                    Apps require minimal configuration, making development faster and deployments simpler. Focus on your
-                    code, not complex setup.
-                </p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="comparison">
-        <h2>How Zhiva Compares</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Zhiva</th>
-                        <th>Electron</th>
-                        <th>Tauri</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>App Size</strong></td>
-                        <td>~5 MB (Zhiva engine, one time) + 100 KB app assets</td>
-                        <td>~120-150 MB</td>
-                        <td>~5-10 MB</td>
-                    </tr>
-                    <tr>
-                        <td><strong>2 Apps Size</strong></td>
-                        <td>~5 MB (engine already installed) + 100 KB * 2 app assets</td>
-                        <td>~120-150 MB * 2</td>
-                        <td>~5-10 MB * 2</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Memory Usage</strong></td>
-                        <td>Low</td>
-                        <td>High</td>
-                        <td>Very Low</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Backend Runtime</strong></td>
-                        <td>Bun (Global Engine)</td>
-                        <td>Node.js (Bundled)</td>
-                        <td>Rust (Compiled)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>UI Rendering</strong></td>
-                        <td>Native System Webview</td>
-                        <td>Chromium (bundled)</td>
-                        <td>Native System Webview</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Frontend-Backend Communication</strong></td>
-                        <td>REST API</td>
-                        <td>IPC (Inter-Process Communication)</td>
-                        <td>IPC / Command System</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Native TypeScript</strong></td>
-                        <td>Yes (via Bun)</td>
-                        <td>No (requires compilation)</td>
-                        <td>No (backend is Rust)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <section class="section comparison">
+            <div class="container">
+                <h2 class="section-title">How Zhiva Compares</h2>
+                <div class="table-wrap">
+                    <table>
+                        <caption class="sr-only">Comparison of Zhiva, Electron and Tauri</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Zhiva</th>
+                                <th scope="col">Electron</th>
+                                <th scope="col">Tauri</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">App Size</th>
+                                <td>~5 MB (Zhiva engine, one time) + 100 KB app assets</td>
+                                <td>~120-150 MB</td>
+                                <td>~5-10 MB</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2 Apps Size</th>
+                                <td>~5 MB (engine already installed) + 100 KB * 2 app assets</td>
+                                <td>~120-150 MB * 2</td>
+                                <td>~5-10 MB * 2</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Memory Usage</th>
+                                <td>Low</td>
+                                <td>High</td>
+                                <td>Very Low</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Backend Runtime</th>
+                                <td>Bun (Global Engine)</td>
+                                <td>Node.js (Bundled)</td>
+                                <td>Rust (Compiled)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">UI Rendering</th>
+                                <td>Native System Webview</td>
+                                <td>Chromium (bundled)</td>
+                                <td>Native System Webview</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Frontend-Backend Communication</th>
+                                <td>REST API</td>
+                                <td>IPC (Inter-Process Communication)</td>
+                                <td>IPC / Command System</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Native TypeScript</th>
+                                <td>Yes (via Bun)</td>
+                                <td>No (requires compilation)</td>
+                                <td>No (backend is Rust)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2026 Zhiva Project. Open source under the MIT License.</p>
         <p>
-            <a href="https://wxn0brp.github.io/Zhiva/" target="_blank">Documentation</a> |
-            <a href="https://github.com/wxn0brP/Zhiva" target="_blank">GitHub</a> |
-            <a href="https://github.com/wxn0brP/Zhiva/discussions" target="_blank">Discussions</a> |
-            <a href="https://discord.gg/fnHp9w629e" target="_blank">Discord</a>
+            <a href="https://wxn0brp.github.io/Zhiva/" target="_blank" rel="noopener noreferrer">Documentation</a> |
+            <a href="https://github.com/wxn0brP/Zhiva" target="_blank" rel="noopener noreferrer">GitHub</a> |
+            <a href="https://github.com/wxn0brP/Zhiva/discussions" target="_blank"
+                rel="noopener noreferrer">Discussions</a> |
+            <a href="https://discord.gg/fnHp9w629e" target="_blank" rel="noopener noreferrer">Discord</a>
         </p>
     </footer>
 
-    <script type="module">
-        const observerOptions = {
-            root: null,
-            rootMargin: "0px",
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        const animatedElements = document.querySelectorAll(".animate-on-scroll");
-        animatedElements.forEach(el => void observer.observe(el));
-    </script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
-    <script>
-        Prism.languages.insertBefore("bash", "function", {
-            "zhiva-cli": {
-                pattern: /(^|[\s;|&]|[<>()])(?:zhiva|bun)(?=$|[\s;|&]|[<>()])/g,
-                lookbehind: true,
-                alias: "keyword"
-            }
-        });
-    </script>
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/nav.js"></script>
+    <script defer src="js/reveal.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script defer src="js/prism-init.js"></script>
 </body>
 
 </html>
