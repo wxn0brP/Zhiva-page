@@ -1,9 +1,6 @@
 :root {
     --primary: #7c3aed;
     --primary-dark: #6d28d9;
-}
-
-:root {
     --text: #fff;
     --text-light: #ccc;
     --bg: #111;
@@ -258,14 +255,14 @@ header {
 }
 
 footer {
-    background: #0c0c0c;
-    color: #aaa;
+    background: var(--bg);
+    color: var(--text-light);
     padding: 4rem 2rem 2rem;
     text-align: center;
 }
 
 footer a {
-    color: #ccc;
+    color: var(--text);
 }
 
 #hero-text {
@@ -291,7 +288,7 @@ footer a {
 
 .status-note {
     background-color: var(--bg-light);
-    color: var(--txt);
+    color: var(--text);
     padding: 1rem;
     border-radius: 0.5rem;
     max-width: 800px;
@@ -308,15 +305,6 @@ footer a {
 .getting-started h2 {
     font-size: 3rem;
     margin-bottom: 4rem;
-}
-
-.step-by-step {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: left;
 }
 
 .step {
@@ -351,8 +339,8 @@ code {
 }
 
 :not(pre)>code {
-    background: #f3e8ff;
-    color: var(--primary-dark);
+    background: #222;
+    color: var(--text);
     padding: 0.2em 0.4em;
     border-radius: 0.3rem;
     font-size: 0.9em;
@@ -490,12 +478,6 @@ td:first-child {
     font-weight: 500;
 }
 
-@media (min-width: 768px) {
-    .step-by-step {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
 .step-by-step-large {
     display: flex;
     flex-direction: column;
@@ -503,12 +485,6 @@ td:first-child {
     max-width: 1200px;
     margin: 0 auto;
     text-align: left;
-}
-
-@media (min-width: 1024px) {
-    .step-by-step-large {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media screen and (max-width: 1000px) {

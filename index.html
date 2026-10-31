@@ -10,9 +10,36 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="description"
         content="Zhiva is a modern framework for building small, fast, native desktop apps using TypeScript, HTML, and CSS - powered by Bun and system native webviews.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zhiva - Build lightweight cross-platform desktop apps">
+    <meta property="og:description"
+        content="Build small, fast native desktop apps with TypeScript, HTML, and CSS. No bundled Chromium - uses system webviews and Bun runtime.">
+    <meta property="og:image" content="favicon.ico">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Zhiva - Build lightweight cross-platform desktop apps">
+    <meta name="twitter:description"
+        content="Build small, fast native desktop apps with TypeScript, HTML, and CSS. No bundled Chromium - uses system webviews and Bun runtime.">
+    <meta name="twitter:image" content="favicon.ico">
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="animations.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Zhiva",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Windows, Linux, macOS",
+        "description": "A modern framework for building lightweight cross-platform desktop apps using TypeScript, HTML, and CSS",
+        "url": "https://github.com/wxn0brP/Zhiva",
+        "license": "https://opensource.org/licenses/MIT",
+        "softwareRequirements": "Bun runtime"
+    }
+    </script>
 </head>
 
 <body>
@@ -74,6 +101,8 @@ curl -fsSL https://raw.githubusercontent.com/wxn0brP/Zhiva/HEAD/install/prepare.
                 <p>
                     Remember to add Zhiva to your shell's PATH.
                     <br>
+                    Run <code>zhiva doctor</code> to verify the installation.
+                    <br>
                     For Windows,
                     <a href="https://github.com/wxn0brP/Zhiva-windows/releases/download/latest/Zhiva-store-app.exe">
                         download the installer
@@ -81,19 +110,15 @@ curl -fsSL https://raw.githubusercontent.com/wxn0brP/Zhiva/HEAD/install/prepare.
                 </p>
             </div>
             <div class="step animate-on-scroll">
-                <h4>2. Create from Template</h4>
-                <p>The easiest way to start is by cloning the official template.</p>
-                <pre><code class="language-shell">git clone https://github.com/wxn0brP/Zhiva-template-app my-app
+                <h4>2. Create a Project</h4>
+                <p>Create a new application from the official template with one command.</p>
+                <pre><code class="language-shell">zhiva create my-app
 cd my-app</code></pre>
             </div>
             <div class="step animate-on-scroll">
-                <h4>3. Install Dependencies & Build</h4>
-                <p>Use Bun to install dependencies and build the frontend TypeScript code.</p>
-                <pre><code class="language-shell"># Install project dependencies
-bun install
-
-# Compile the frontend code
-bun run build</code></pre>
+                <h4>3. Build the Frontend</h4>
+                <p><code>zhiva create</code> already installed dependencies. Build the frontend TypeScript code.</p>
+                <pre><code class="language-shell">bun run build</code></pre>
             </div>
             <div class="step animate-on-scroll">
                 <h4>4. Run Your App</h4>
@@ -201,14 +226,14 @@ fetchApiPost("hello", { msg: "Hello from Zhiva" })
             <div class="feature animate-on-scroll">
                 <h3>Platform Support</h3>
                 <p>
-                    Full support for Windows and Linux. Experimental macOS support is available and actively improving.
+                    Full support for Windows and Linux. macOS support exists but is untested on real hardware.
                 </p>
             </div>
             <div class="feature animate-on-scroll">
                 <h3>Familiar Web Stack</h3>
                 <p>
                     Use HTML, CSS, TypeScript/JavaScript, and any frontend framework (React, Vue, Svelte, etc.).
-                    Hot reload works out of the box.
+                    Bun rebuilds the frontend in milliseconds.
                 </p>
             </div>
             <div class="feature animate-on-scroll">
@@ -321,7 +346,7 @@ fetchApiPost("hello", { msg: "Hello from Zhiva" })
         }, observerOptions);
 
         const animatedElements = document.querySelectorAll(".animate-on-scroll");
-        animatedElements.forEach(el => observer.observe(el));
+        animatedElements.forEach(el => void observer.observe(el));
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
